@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  NewsApp
+
+  Created by son5c on 11/7/19.
+  Copyright © 2019 son5c. All rights reserved.
+*/
+
+//Home tabs
+"tab_headlines_title" = "HeadLines";
+"tab_filters_title" = "Filters";
+"tab_profile_title" = "Profile";
+
+//Fillter
+"filter_apple_title" = "Apple";
+"filter_bitcoin_title" = "Bitcoin";
+"filter_earthquake_title" = "Earthquake";
+"filter_animal_title" = "Animal";
+"filter_description" = "Please select keyword";
+"filter_by" = "Filter by:";
+
+//Profile
+"profile_title" = "Profile";
+"profile_enter_your_name_text"  = "Enter your name";
+"profile_enter_pass_word_text"  = "Password";
+"profile_register_text"  = "Register";
+
+//Request status
+"request_status" = "Loading";
+
+//Error message
+"error_unknown_message" = "Unknown error";
+"error_existed_user_message" = "The user existed, please enter new user name!";
+
+"full_content_url_link" = "Link URL";
+
+"common_ok" = "OK";
