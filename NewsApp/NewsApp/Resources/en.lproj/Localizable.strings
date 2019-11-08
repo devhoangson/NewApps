@@ -27,10 +27,12 @@
 
 //Request status
 "request_status" = "Loading";
+"save_user_success_message" = "Save success!";
 
 //Error message
 "error_unknown_message" = "Unknown error";
 "error_existed_user_message" = "The user existed, please enter new user name!";
+
 
 "full_content_url_link" = "Link URL";
 

@@ -11,9 +11,8 @@ import SwiftUI
 struct ProfileView: View {
     @State private var userName: String = ""
     @State private var password: String = ""
-    
-    @State private var isExistedUser: Bool = false
-    
+    @State private var message: String = ""
+
     private var viewModel = ProfileViewModel()
     init(_ viewModel: ProfileViewModel) {
         self.viewModel = viewModel
@@ -28,15 +27,22 @@ struct ProfileView: View {
                 SecureField(LocalizedStringKey("profile_enter_pass_word_text"), text: self.$password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
+                Text(self.message)
+                    .padding()
+                    .font(.title)
+                    .foregroundColor(.red)
+                    .animation(.easeInOut(duration: 0.75))
                 Button(action: {
                     let isValid = self.viewModel.validateInputs(self.userName, self.password)
                     if isValid{
                         if !self.viewModel.isExisedUser(self.userName) {
                             self.viewModel.saveUser(self.userName, self.password)
+                            self.message = NSLocalizedString("save_user_success_message", comment: "")
                             self.resetInputs()
-                            return
+                        }else {
+                            self.message = NSLocalizedString("error_existed_user_message", comment: "")
+                            self.resetInputs()
                         }
-                        self.isExistedUser = true
                     }else {
                         //TODO: HANDLE VALIDATE INPUTS 
                     }
@@ -44,14 +50,7 @@ struct ProfileView: View {
                     return Text(LocalizedStringKey("profile_register_text"))
                         .modifier(CustomButtonViewModifier((!self.userName.isEmpty && !self.password.isEmpty) ? .blue : .gray))
                 }).disabled(self.userName.isEmpty && self.password.isEmpty)
-                    .alert(isPresented: self.$isExistedUser, content: {
-                        return Alert(title: Text(LocalizedStringKey("error_existed_user_message")),
-                                     message: nil,
-                                     dismissButton: .default(Text(LocalizedStringKey("common_ok")), action: {
-                                        self.resetInputs()
-                                     }))
-                    }).navigationBarTitle(LocalizedStringKey("profile_title"))
-                
+                .navigationBarTitle(LocalizedStringKey("profile_title"))
                 Spacer()
             }
         }
