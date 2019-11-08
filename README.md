@@ -3,8 +3,8 @@ GIT:
 
 Structure app:
 - MVVM architecture
-- Buiding simple UI with SwiftUI
-- Binding data with SwiftUI/Combine framwork
+- Building simple UI with SwiftUI
+- Binding data with SwiftUI/Combine framework
 - Storing list of users to local(UserDefaults/Keychain)
 - Using swift package dependencies
 
